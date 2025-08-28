@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Form UI Component Demo</title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background: #f3f4f6;
+			font-family: 'Montserrat', Arial, sans-serif;
+			min-height: 100vh;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.login-container {
+			background: #fff;
+			border-radius: 14px;
+			box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+			padding: 2.5rem 2rem 2rem 2rem;
+			max-width: 340px;
+			width: 100%;
+		}
+		.login-title {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			color: #22223b;
+			text-align: center;
+		}
+		.login-label {
+			display: block;
+			margin-bottom: 0.3rem;
+			font-size: 1rem;
+			color: #374151;
+		}
+		.login-input {
+			width: 100%;
+			padding: 0.7rem;
+			margin-bottom: 1.1rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 6px;
+			font-size: 1rem;
+			background: #f9fafb;
+			transition: border 0.2s;
+		}
+		.login-input:focus {
+			border: 1.5px solid #3b82f6;
+			outline: none;
+		}
+		.login-btn {
+			width: 100%;
+			background: #3b82f6;
+			color: #fff;
+			border: none;
+			border-radius: 6px;
+			padding: 0.8rem 0;
+			font-size: 1.08rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		.login-btn:hover {
+			background: #2563eb;
+		}
+		.login-message {
+			margin-top: 1rem;
+			color: #16a34a;
+			font-size: 1rem;
+			text-align: center;
+			min-height: 1.2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="login-container">
+		<div class="login-title">Login to µLearn CET</div>
+		<form id="loginForm">
+			<label class="login-label" for="username">Username</label>
+			<input class="login-input" type="text" id="username" name="username" required autocomplete="off">
+			<label class="login-label" for="password">Password</label>
+			<input class="login-input" type="password" id="password" name="password" required>
+			<button class="login-btn" type="submit">Login</button>
+		</form>
+		<div class="login-message" id="loginMessage"></div>
+	</div>
+	<script>
+		document.getElementById('loginForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const username = document.getElementById('username').value.trim();
+			const password = document.getElementById('password').value;
+			const msg = document.getElementById('loginMessage');
+			if(username && password) {
+				msg.textContent = `Welcome, ${username}!`;
+				msg.style.color = '#16a34a';
+			} else {
+				msg.textContent = 'Please enter both username and password.';
+				msg.style.color = '#ef4444';
+			}
+		});
+	</script>
+</body>
+</html>
